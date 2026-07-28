@@ -45,10 +45,9 @@ function Dashboard() {
 
           <Link
             className="nav-link text-dark fw-semibold"
-            to="/dashboard"
-          >
-            <i className="bi bi-kanban-fill me-2"></i>
-            TeamSync
+            to="/dashboard">
+              <i className="bi bi-kanban-fill me-2"></i>
+              TeamSync
           </Link>
 
           <div className="navbar-collapse">
@@ -140,20 +139,22 @@ function Dashboard() {
         <div className="row">
 
           <div className="col-md-3 mb-3">
-            <div className="card border-0 shadow-lg text-white"
-              style={{
-                borderRadius: "20px",
-                transition: "0.3s",
-                background:
-                      "linear-gradient(135deg,#2563eb,#3b82f6)",
-              }}
-            >
-              <div className="card-body text-center">
-                <h5>📝 Total Tasks</h5>
-                <h1 className="fw-bold display-5">{stats.total_tasks}</h1>
-              </div>
-            </div>
-          </div>
+             <div
+               className="card border-0 shadow-lg text-white h-100"
+               style={{
+                 borderRadius: "20px",
+                 background: "linear-gradient(135deg,#2563eb,#3b82f6)",
+               }}
+             >
+               <div className="card-body text-center d-flex flex-column justify-content-center">
+                 <h5>📝 Total Tasks</h5>
+
+                 <h1 className="fw-bold display-4">
+                   {stats.total_tasks}
+                 </h1>
+               </div>
+             </div>
+           </div>
 
           <div className="col-md-3 mb-3">
             <div
