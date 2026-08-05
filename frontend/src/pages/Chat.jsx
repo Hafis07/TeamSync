@@ -16,7 +16,11 @@ function Chat() {
   useEffect(() => {
     fetchMessages();
 
-    socket.current = new WebSocket("ws://127.0.0.1:8000/ws/chat/1/");
+    const workspaceId = localStorage.getItem("workspace_id");
+
+    socket.current = new WebSocket(
+       `wss://teamsync-3uca.onrender.com/ws/chat/${workspaceId}/`
+    );
 
     socket.current.onopen = () => {
       console.log("WebSocket Connected");
