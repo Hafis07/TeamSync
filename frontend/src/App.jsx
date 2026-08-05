@@ -6,6 +6,7 @@ import Tasks from "./pages/Tasks";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Notifications from "./pages/Notifications";
 import Chat from "./pages/Chat";
+import Workspace from "./pages/Workspace";
 
 function App() {
   return (
@@ -28,6 +29,15 @@ function App() {
             <Tasks />
           </ProtectedRoute>
         }
+      />
+
+      <Route
+         path="/workspace"
+         element={
+           <ProtectedRoute>
+               <Workspace />
+           </ProtectedRoute>
+         }
       />
 
       <Route
