@@ -73,7 +73,7 @@ function Dashboard() {
               <li className="nav-item">
                 <Link
                   className="nav-link text-dark fw-semibold"
-                  to="#">
+                  to="/workspace">
                   Workspace
                 </Link>
               </li>
