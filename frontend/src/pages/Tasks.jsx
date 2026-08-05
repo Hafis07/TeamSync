@@ -25,7 +25,7 @@ function Tasks() {
 
   const fetchTasks = async () => {
     try {
-      let url = "tasks/workspace/1/?";
+      let url = "tasks/workspace/2/?";
 
       if (search) url += `search=${search}&`;
       if (statusFilter) url += `status=${statusFilter}&`;
@@ -96,7 +96,7 @@ function Tasks() {
 
     try {
 
-      await API.post("tasks/workspace/1/", {
+      await API.post("tasks/workspace/2/", {
         title,
         priority,
         due_date: dueDate,
