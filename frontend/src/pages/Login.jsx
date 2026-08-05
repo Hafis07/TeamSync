@@ -28,7 +28,21 @@ function Login() {
       localStorage.setItem("refresh", res.data.refresh);
 
       localStorage.setItem("user_id", res.data.user.id);
-localStorage.setItem("username", res.data.user.username);
+      localStorage.setItem("username", res.data.user.username);
+
+      try {
+        const workspaceRes = await API.get("workspaces/");
+
+        if (workspaceRes.data.length > 0) {
+          localStorage.setItem(
+            "workspace_id",
+            workspaceRes.data[0].id
+          );
+        }
+      } catch (error) {
+        console.log("No workspace found");
+      }
+      
 
       alert("Login Successful");
 

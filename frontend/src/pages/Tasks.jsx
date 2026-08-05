@@ -23,9 +23,11 @@ function Tasks() {
     fetchTasks();
   }, [search, statusFilter, priorityFilter]);
 
+  const workspaceId = localStorage.getItem("workspace_id");
+
   const fetchTasks = async () => {
     try {
-      let url = "tasks/workspace/2/?";
+      let url = `tasks/workspace/${workspaceId}/?`;
 
       if (search) url += `search=${search}&`;
       if (statusFilter) url += `status=${statusFilter}&`;
@@ -96,7 +98,7 @@ function Tasks() {
 
     try {
 
-      await API.post("tasks/workspace/2/", {
+      await API.post(`tasks/workspace/${workspaceId}/`, {
         title,
         priority,
         due_date: dueDate,

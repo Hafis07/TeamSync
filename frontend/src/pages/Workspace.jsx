@@ -1,8 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import API from "../api/axios";
 
 function Workspace() {
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    const fetchWorkspaces = async () => {
+        try {
+            const res = await API.get("workspaces/");
+
+            if (res.data.length > 0) {
+                localStorage.setItem("workspace_id", res.data[0].id);
+            }
+        } catch (err) {
+          console.log(err.response?.data);  
+        }
+    };
+
+    fetchWorkspaces();
+  }, []);
+  
 
   const createWorkspace = async (e) => {
     e.preventDefault();
@@ -11,6 +28,8 @@ function Workspace() {
       const res = await API.post("workspaces/", {
         name,
       });
+
+      localStorage.setItem("workspace_id", res.data.id);
 
       alert("Workspace created successfully!");
 
